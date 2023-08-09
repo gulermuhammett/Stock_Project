@@ -1,0 +1,77 @@
+﻿@using StockProject.Entities.Entities;
+@model IEnumerable<StockProject.Entities.Entities.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Shared/_Layout.cshtml";
+}
+
+ <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                               
+                                <strong class="card-title">Ürün Listesi
+                            <a class="btn btn-secondary ms-4" asp-controller="Product" asp-action="AddProduct">Ürün Ekle</a>
+                                    </strong>
+                                
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ürün Adı</th>
+                                            <th>Birim Fiyat</th>
+                                            <th>Stok Miktarı</th>
+                                            <th>Son Kullanma Tarihi</th>
+                                            <th>Kategori Adı</th>
+                                            <th>Tedarikçi Adı</th>
+                                            <th>Aktivite Durumu</th>
+                                            <th>Eklenme Zamanı</th>
+                                            <th>Güncellenme Zamanı</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                            @{
+                                             int rowcount = 1;
+                                             }
+                                            @foreach (Product item in Model)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@rowcount</th>
+                                                    <td>@item.ProductName</td>
+                                                    <td>@item.UnitPrice</td>
+                                                    <td>@item.Stock</td>
+                                                    <td>@item.ExpireDate</td>
+                                                    <td>@item.Category.CategoryName</td>
+                                                    <td>@item.Supplier.SupplierName</td>
+                                                    <td>@item.IsActive</td>
+                                                    <td>@item.AddedDate</td>
+                                                    <td>@item.ModifiedDate</td>
+                                                    <td>
+                                                        <a asp-area="Admin" asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Güncelle</a>
+
+                                                    <a asp-area="Admin" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+                                                    </td>
+                                                    
+                                </tr>
+                                rowcount++;
+                            }
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+
+

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Shared/_Layout.cshtml";
+}
+
+@model StockProject.Entities.Entities.Category
+
+<div class="col-lg-6 offset-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Kategori Güncelle</strong>
+                            </div>
+                            <div class="card-body">
+                                <!-- Credit Card -->
+                                <div id="pay-invoice">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center">Kategori</h3>
+                                        </div>
+                                        <hr>
+                                        <form asp-action="UpdateCategory" method="post" novalidate="novalidate">
+                                           
+                                            <div class="form-group">
+                                                <label asp-for="Description"  class="control-label mb-1">Kategori Adı</label>
+                                                <input asp-for="CategoryName"  type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label  asp-for="Description"  class="control-label mb-1">Açıklama</label>
+                                                <input  asp-for="Description" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name">
+                                               
+                                            </div>
+
+                                                <button type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                    <span id="payment-button-amount">Kategori Güncelle</span>
+                                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                                </button>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div> <!-- .card -->
+
+                    </div><!--/.col-->
+
+
+
